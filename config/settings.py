@@ -29,8 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+LOCAL_APPS = [
+    'apps.users',
+]
+
+THIRDPARTY_APPS = [
+    
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRDPARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,6 +78,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# Users & Authentication
+AUTH_USER_MODEL = 'apps.users.User'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
