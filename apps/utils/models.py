@@ -1,34 +1,33 @@
-"""Django models utilities."""
+"""Django model utilities."""
 
-# Django
+# django
 from django.db import models
 
 
-class BaseModel(models.Model):
-    """App base model.
+class FinanzenBaseModel(models.Model):
+    """Finanzen base model.
 
-    BaseModel acts as an abstract base class from which every
+    FinanzenBaseModel acts as an abstract base class from witchnevery
     other model in the project will inherit. This class provides
-    every table with the following attributes:
-        + created (DateTime): Store the datetime the object was created.
-        + modified (DateTime): Store the last datetime the object was modified.
+    every table with de following attribute:
+        + created (DateTime): Store the datetime the object was created
+        + modified (DateTime): Store the last datetime the object was modified
     """
 
     created = models.DateTimeField(
-        'created at',
+        'created_at',
         auto_now_add=True,
-        help_text='Date time on which the object was created.'
+        help_text="Date time on with the object was created."
     )
     modified = models.DateTimeField(
-        'modified at',
+        'modified_at',
         auto_now=True,
-        help_text='Date time on which the object was last modified.'
+        help_text="Date time on with the object was last modified."
     )
 
-    class Meta:
-        """Meta option."""
-
+    class Meta(object):
+        """docstring for Meta"""
         abstract = True
 
         get_latest_by = 'created'
-        ordering = ['-created', '-modified']
+        ordering = ('-created', '-modified')
